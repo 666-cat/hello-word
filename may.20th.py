@@ -1,3 +1,4 @@
+
 import mysql.connector
 from openpyxl import load_workbook
 # 加载 Excel 文件
@@ -35,10 +36,10 @@ try:
     """
     cursor.execute(create_table_query)
     print("学生信息表创建成功")
-    insert_query = '''
+    insert_query = """
     INSERT INTO students (name, student_id, gender, phone_number)
     VALUES ( %s, %s,%s,%s)
-    '''
+    """
     # 逐行读取数据（跳过表头）
     for row in sheet.iter_rows(min_row=3, values_only=True):
         # row 是一个元组，包含当前行的所有单元格值
@@ -78,3 +79,50 @@ finally:
         cursor.close()
         conn.close()
         print("数据连接已关闭")
+
+"""
+a=[str(round(355/113,i)) for i in range(1,6)]
+print(a)
+matrix=[[1,2,3,4],
+        [5,6,7,8],
+        [9,10,11,12],
+        [13,14,15,16]]
+a=[row[i] for row in matrix for i in range(4)]
+print(type(a))
+b=transposed=[]
+for i in range(4):
+    transposed.append([row[i] for row in matrix])
+print(type(b))
+print(b)
+"""
+"""
+a=[1,2,1.2,11.2,1.6]
+del a[0]
+print(a)
+del a[1:3]
+print(a)
+"""
+"""
+a=set("abdhhcdkcz")
+print(a)
+b=set("hfjshdbcc ")
+print(b)
+c={x for x in "abcfdnjd" if x not in "abc"}
+print(c)
+tel={"name":"jack","age":25,"number":64781739}
+print(tel["name"])
+tel["where"]="北京"
+print(tel)
+print("name" in tel)
+print("jack" in tel)
+for i,v in enumerate(["tic","tac","toe"]):
+    print(i,v)
+"""
+questions = ['name', 'quest', 'favorite color']
+answers = ['lancelot', 'the holy grail', 'blue']
+for q, a in zip(questions, answers):
+     print("what is your",q,"it is",a)
+for i in "abcdefg":
+     print(i)
+for i in reversed("abcdefg"):
+     print(i)

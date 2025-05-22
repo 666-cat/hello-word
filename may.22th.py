@@ -122,3 +122,17 @@ if __name__ == "__main__":
     
     # 查看数据（可选）
     view_data()
+import requests
+base_url="http://localhost:3000/api"
+def get_tocken():
+    login_data={
+        "username":"wei1hu@icloud.com",
+        "password":"wly1314521"
+    }
+    response=requests.post(f"{base_url}/session",json=login_data)
+    if response.status_code==200:
+        return response.json()
+    else:
+        raise Exception(f"获取数据列表失败:{response.text}")
+tocken=get_tocken()
+print(f"获得的Token:{tocken}")
