@@ -47,6 +47,7 @@ cursor.fetchone()获取下一行数据，返回单个元组；结果集为空时
 commit():每次插入数据都要执行一次
 row函数可以逐行读取数据，row是一个元组
 cursor.fetchall():获取所有剩余行的数据，返回元组列表 [(row1), (row2), ...]；结果集为空时返回空列表 []
+pip freeze > requirements.txt 更新 requirements.txt
 
 
 

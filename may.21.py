@@ -2,7 +2,7 @@
 """
 import sys
 print("该文件路径如下")
-for i in sys.argv:#sys.argv包含脚本名，以及后续参数
+for i in sys.argv:#sys.argv包含脚本名,以及后续参数
     print(i)
 print(sys.path)#查找模块对应的文件所在的路径
 """
@@ -44,7 +44,7 @@ nb(1000)#都是一样的
 '''
 '''
 if __name__=="__main__":
-    print("程序在自身运行")#每一个模块都有一个name，直接运行该模块name的名字为main，被导入name为模块名
+    print("程序在自身运行")#每一个模块都有一个name,直接运行该模块name的名字为main,被导入name为模块名
 else:
     print("程序在另外一个模块进行")
 import sys
