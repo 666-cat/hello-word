@@ -1,6 +1,6 @@
 import pandas as pd  # 导入 pandas 库，用于数据处理和分析
-import numpy as np  # 导入 numpy 库，用于科学计算
 import matplotlib.pyplot as plt  # 导入 matplotlib 的 pyplot 模块，用于数据可视化
+import plotly.express as px
 import seaborn as sns  # 导入 seaborn 库，基于 matplotlib 的高级数据可视化库
 from sklearn.preprocessing import LabelEncoder  # 从 sklearn 库中导入 LabelEncoder 类，用于将分类变量编码为数值变量
 
@@ -46,10 +46,11 @@ import plotly.express as px  # 导入 plotly 的 express 模块，用于创建�
 
 # 绘制每个制造商的药品数量柱状图
 fig = px.bar(manufacturer_counts, x=manufacturer_counts.index, y=manufacturer_counts.values, title='Number Of Medicines by Manufacturer')  # 创建柱状图
+fig.show()  # 显示绘制好的图表
 
 fig.update_xaxes(tickangle=45)  # 旋转 x 轴标签 45 度，提高可读性
 fig.update_layout(xaxis_title='Manufacturer', yaxis_title='Number of Medicines')  # 设置 x 轴和 y 轴的标题
-
+ # 打印图表对象，显示图表的 HTML 代码
 from mpl_toolkits.mplot3d import Axes3D  # 从 mpl_toolkits.mplot3d 模块导入 Axes3D 类，用于创建 3D 图表
 
 # 假设 Composition 是分类列，使用 LabelEncoder 进行编码
