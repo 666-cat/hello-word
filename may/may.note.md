@@ -34,7 +34,9 @@ docker ps -a 查看当前正在运行的容器
 启动容器	docker start mysql-container
 删除容器	docker rm mysql-container
 查看日志	docker logs mysql-container
-进入容器终端	docker exec -it mysql-container bash
+进入容器终端	docker exec -it mysql-june bash
+mysql -u root -p -h localhost #登陆本地
+mysql -u root -p -h 127.0.0.1  #登陆远程
 登陆信息 mysql -u root -p
 查看容器ip  docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mysql-prod
 备份数据	docker cp mysql-container:/var/lib/mysql /host/path/backup

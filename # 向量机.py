@@ -110,7 +110,7 @@ def visualize_results(X, y, model):
     plt.figure(figsize=(10, 6)) 
     
     # 绘制散点图，根据标签y进行颜色编码，使用coolwarm颜色映射，点大小为50，带黑色边框
-    plt.scatter(X[:, 0], X[:, 1], c=y, cmap='coolwarm', s=50, edgecolors='k') #里 c=y 表示根据标签 y 的值来确定颜色， cmap='coolwarm' 则指定了使用 coolwarm 颜色映射将 y 的值映射到不同的颜色上。
+    plt.scatter(X[:, 0], X[:, 1], c=y, cmap='coolwarm', s=50, edgecolors='k') 
     
     # 获取当前坐标轴对象
     ax = plt.gca() 

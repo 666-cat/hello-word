@@ -1,29 +1,32 @@
-import numpy as np
-from collections import Counter
-class KNM:
-    def __init__(self,k=3):
-        self.k=k
-    def fit (self,x,y):
-        self.x_train=x
-        self.y_train=y
-    def _distance(self,x1,x2):
-        return np.sqrt(np.sum((x1-x2)**2))
-    def _predict(self,x):
-        distances=[self._distance(x,x_train) for x_train in self.x_train]
-        #print (f"距离:{distances}")
-        indices=np.argsort(distances)[:self.k]
-        #print (f"最近的{self.k}个邻居索引:{indices}")
-        nearest_labels=[y_train[i] for i in indices]
-        lastresult=Counter(nearest_labels).most_common(1)
-        return lastresult[0][0]
-    def predict(self,t):
-        y_pred=[self._predict(x) for x in t]
-        return np.array(y_pred)
+'''
+from sklearn import datasets
+from sklearn.tree import DecisionTreeClassifier,plot_tree
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plot
 if __name__=="__main__":
-    x_train=np.array([[1,2],[2,3],[3,1],[4,3],[5,4]])
-    y_train=np.array([0,0,0,1,1])
-    knm=KNM(k=4)
-    knm.fit(x_train,y_train)
-    x_test=np.array([[float(input("请输入测试数据的第一个指标:")),float(input("请输入测试数据的第二个指标:"))]])
-    prediction=knm.predict(x_test)
-    print(f"预测结果:{prediction}")
+    iris=datasets.load_iris()
+    x=iris.data
+    y=iris.target
+    x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42)
+    clf=DecisionTreeClassifier(max_depth=3,criterion="entropy",min_samples_split=2)
+    clf.fit(x_train,y_train)
+    y_pred=clf.predict(x_test)
+    accuracy=clf.score(x_test,y_test)
+    print(f"Accuracy:{accuracy*100:.2f}%")
+    plot.figure(figsize=(12,8))
+    plot_tree(clf,filled=True,feature_names=iris.feature_names,class_names=iris.target_names)
+    plot.show()
+'''
+from sklearn.datasets import fetch_california_housing
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.model_selection import train_test_split
+
+housing=fetch_california_housing()
+x=housing.data
+y=housing.target
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42)
+regressor=DecisionTreeRegressor(max_depth=5,criterion="squared_error",min_samples_split=2)
+regressor.fit(x_train,y_train)
+y_pred=regressor.predict(x_test)
+mse=regressor.score(x_test,y_test)
+print(f"Mean Squared Error:{mse:.2f}")
