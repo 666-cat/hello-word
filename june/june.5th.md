@@ -22,9 +22,9 @@
 ### **第一步：计算根节点的熵（初始纯度）**
 根节点包含所有10个样本，其中“是”（购买）有6个，“否”有4个。  
 熵计算公式：  
-\[
+\begin{equation}\[
 H(\text{根节点}) = -\left( \frac{6}{10} \log_2 \frac{6}{10} + \frac{4}{10} \log_2 \frac{4}{10} \right)
-\]  
+\]\end{equation}
 计算过程：  
 \[
 \log_2 \frac{6}{10} \approx -0.737, \quad \log_2 \frac{4}{10} \approx -1.322
