@@ -1,5 +1,5 @@
 | 窗口函数 | 用法 | 示例 |
-| --- | --- | --- |
+| ----------- | -------------- | ------------ |
 | ROW_NUMBER() | 为结果集中的每一行分配一个唯一的行号，从 1 开始按指定的排序顺序依次递增。 | `ROW_NUMBER() OVER (PARTITION BY column1 ORDER BY column2)` <br> 按 `column1` 分组，在每个组内按 `column2` 排序并分配行号。 |
 | RANK() | 为结果集中的每一行分配一个排名，相同值的行排名相同，排名会跳过后续的排名值。 | `RANK() OVER (PARTITION BY column1 ORDER BY column2)` <br> 按 `column1` 分组，在每个组内按 `column2` 排序并分配排名。 |
 | DENSE_RANK() | 与 `RANK()` 类似，但相同值的行排名相同，排名不会跳过后续的排名值。 | `DENSE_RANK() OVER (PARTITION BY column1 ORDER BY column2)` <br> 按 `column1` 分组，在每个组内按 `column2` 排序并分配密集排名。 |
